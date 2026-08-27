@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags:
+  - Enemy
+  - EnemProjectile
+  - Pillar
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Lever
+  - leverLayer
+  - playerLayer
+  - Pillar
+  - Collision
+  - Boss
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 32305477
+    locked: 0
+  - name: Ground2
+    uniqueID: 3031625377
+    locked: 0
+  - name: FloorDecor
+    uniqueID: 2186198431
+    locked: 0
+  - name: WalkInFront
+    uniqueID: 1224615271
+    locked: 0
+  - name: Tree
+    uniqueID: 1188255811
+    locked: 0
+  - name: Collision
+    uniqueID: 359610969
+    locked: 0
+  - name: Player
+    uniqueID: 4146713695
+    locked: 0
+  - name: WalkBehind
+    uniqueID: 471215605
+    locked: 0
+  - name: Decor
+    uniqueID: 109203721
+    locked: 0
+  m_RenderingLayers:
+  - Default
+  m_MigratedRenderPipelines: []
