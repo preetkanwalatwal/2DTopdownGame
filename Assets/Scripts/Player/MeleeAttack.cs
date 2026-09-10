@@ -28,6 +28,15 @@ public class MeleeAttack : MonoBehaviour
             if(enemy != null)
             {
                 enemy.TakeDamage(damage);
+
+                if(weaponType == WeaponType.Melee)
+                {
+                    Debug.Log("Melee attack hit");
+                    enemy.TakeDamage(damage);
+                    enemy.Knockback(transform.position);
+
+                }
+
                 if(weaponType == WeaponType.Ranged)
                 {
                     Destroy(gameObject);

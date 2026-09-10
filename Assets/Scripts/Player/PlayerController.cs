@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     private Vector2 moveDirection;
     private Vector2 lookDirection;
+    private Vector2 facingDirection = Vector2.down;
 
     public bool moving = false;
     public bool isRunning = false;
@@ -18,7 +19,7 @@ public class PlayerController : MonoBehaviour
     public float runSpeed;
 
     public float attackRate;
-    public float attackDuration = 0.3f;
+    public float attackDuration = 0.5f;
     public float attackTimer = 0f;
 
     // Ranged settings
@@ -68,10 +69,10 @@ public class PlayerController : MonoBehaviour
               MouseAim();
         }
 
-        if (isAttacking && attackReady)
-        {
-            Attack();
-        }
+        // if (isAttacking && attackReady)
+        // {
+        //     Attack();
+        // }
 
         if (Input.GetKeyDown(turnLeftKey) || Input.GetKeyDown(turnRightKey))
         {
@@ -115,6 +116,11 @@ public class PlayerController : MonoBehaviour
     {
         moveDirection = value.Get<Vector2>().normalized;
         moving = moveDirection.sqrMagnitude > 0.01f;
+
+        if(moving && aimMode == AimMode.Controller)
+        {
+            facingDirection = moveDirection;
+        }
     }
 
     public void OnLook(InputValue lookValue)
@@ -134,24 +140,42 @@ public class PlayerController : MonoBehaviour
 
     public void MouseAim()
     {
-        if(Mouse.current == null) return;
+        // if(Mouse.current == null) return;
 
-        // Convert mouse position to world position
+        // // Convert mouse position to world position
+        // Vector3 mouseScreen = Mouse.current.position.ReadValue();
+        // mouseScreen.z = Mathf.Abs(Camera.main.transform.position.z);
+
+        // Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(mouseScreen);
+        // mouseWorld.z = 0f;
+
+        // // Direction from player to mouse
+        // Vector2 direction = (mouseWorld - transform.position).normalized;
+
+        // if (direction.sqrMagnitude < 0.001f) return;
+
+        // lookDirection = direction;
+
+        // lookTransform.up = lookDirection;
+        // meleeAim.up = lookDirection;
+
+        if (Mouse.current == null) return;
+
         Vector3 mouseScreen = Mouse.current.position.ReadValue();
         mouseScreen.z = Mathf.Abs(Camera.main.transform.position.z);
 
         Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(mouseScreen);
         mouseWorld.z = 0f;
 
-        // Direction from player to mouse
         Vector2 direction = (mouseWorld - transform.position).normalized;
 
         if (direction.sqrMagnitude < 0.001f) return;
 
         lookDirection = direction;
+        facingDirection = direction;
 
-        lookTransform.up = lookDirection;
-        meleeAim.up = lookDirection;
+        lookTransform.up = direction;
+        meleeAim.up = direction;
     }
 
     public void OnRun(InputValue runValue)
@@ -162,13 +186,28 @@ public class PlayerController : MonoBehaviour
 
     public void OnFire1(InputValue attackValue)
     {
-        // isAttacking = attackValue.isPressed;
-        // Debug.Log("is attacking");
+        if (!attackValue.isPressed) return;
+        if (!attackReady) return;
 
-        if (attackValue.isPressed && attackReady)
+        // Make sure the latest mouse position is used
+        if (aimMode == AimMode.Mouse)
         {
-            StartAttack();
+            MouseAim();
         }
+        else
+        {
+            // Controller: use current look direction
+            if (lookDirection.sqrMagnitude > 0.001f)
+            {
+                facingDirection = lookDirection.normalized;
+            }
+        }
+
+        // Force the Animator to face the aim direction
+        myAnim.SetFloat("LastMoveX", facingDirection.x);
+        myAnim.SetFloat("LastMoveY", facingDirection.y);
+
+        StartAttack();
     }
 
     public void OnFire2(InputValue rangeValue)
@@ -184,6 +223,7 @@ public class PlayerController : MonoBehaviour
         isAttacking = true;
         attackReady = false;
         attackTimer = 0f;
+
         Melee.SetActive(true);
         myAnim.SetBool("IsAttacking", true);
     }
@@ -242,17 +282,19 @@ public class PlayerController : MonoBehaviour
     // }
     void CheckMeleeTimer()
     {
-        if (isAttacking)
+        if(!isAttacking) return;
+
+        attackTimer += Time.deltaTime;
+
+        if (attackTimer >= attackDuration)
         {
-            attackTimer += Time.deltaTime;
-            if (attackTimer >= attackDuration)
-            {
-                attackTimer = 0f;
-                isAttacking = false;
-                attackReady = true;
-                Melee.SetActive(false);
-                myAnim.SetBool("IsAttacking", false);
-            }
+            
+            attackTimer = 0f;
+            isAttacking = false;
+            attackReady = true;
+
+            Melee.SetActive(false);
+            myAnim.SetBool("IsAttacking", false);
         }
     }
     IEnumerator BasicAttack()
@@ -299,20 +341,33 @@ public class PlayerController : MonoBehaviour
 
     void UpdateAnimation()
     {
-        // Update Animator parameters
-        myAnim.SetFloat("MoveX", moveDirection.x);
-        myAnim.SetFloat("MoveY", moveDirection.y);
-        myAnim.SetFloat("Speed", moveDirection.sqrMagnitude);
-        myAnim.SetBool("IsRunning", isRunning);
+        // // Update Animator parameters
+        // myAnim.SetFloat("MoveX", moveDirection.x);
+        // myAnim.SetFloat("MoveY", moveDirection.y);
+        // myAnim.SetFloat("Speed", moveDirection.sqrMagnitude);
+        // myAnim.SetBool("IsRunning", isRunning);
+        // if (!isAttacking)
+        // {
+        //     myAnim.SetBool("IsAttacking", isAttacking);
+        // }
+        // // Remember last movement direction for idle facing
+        // if (moveDirection != Vector2.zero)
+        // {
+        //     myAnim.SetFloat("LastMoveX", facingDirection.x);
+        //     myAnim.SetFloat("LastMoveY", facingDirection.y);
+        // }
         if (!isAttacking)
         {
-            myAnim.SetBool("IsAttacking", isAttacking);
-        }
-        // Remember last movement direction for idle facing
-        if (moveDirection != Vector2.zero)
-        {
-            myAnim.SetFloat("LastMoveX", moveDirection.x);
-            myAnim.SetFloat("LastMoveY", moveDirection.y);
+            myAnim.SetFloat("MoveX", moveDirection.x);
+            myAnim.SetFloat("MoveY", moveDirection.y);
+            myAnim.SetFloat("Speed", moveDirection.sqrMagnitude);
+            myAnim.SetBool("IsRunning", isRunning);
+
+            if (moveDirection != Vector2.zero)
+            {
+                myAnim.SetFloat("LastMoveX", facingDirection.x);
+                myAnim.SetFloat("LastMoveY", facingDirection.y);
+            }
         }
     }
 

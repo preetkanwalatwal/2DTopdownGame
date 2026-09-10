@@ -274,6 +274,8 @@ MonoBehaviour:
   mapBoundsMin: {x: -15, y: -10}
   mapBoundsMax: {x: 16, y: 9}
   wallCheckBuffer: 0.3
+  knockbackForce: 15
+  knockbackDuration: 0.15
   playerLayer:
     serializedVersion: 2
     m_Bits: 256

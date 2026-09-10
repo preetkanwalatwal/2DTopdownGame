@@ -16,6 +16,7 @@ public class Vamp1Combat : MonoBehaviour
     public GameObject exit;
     public GameObject door;
     public bool chasePlayer = false;
+    public float meleeReactionTime = 0.5f; // Time to wait before checking melee range again
 
     public float basicAttackCooldown = 4f;
     public float basicAttackTimer = 0f;
@@ -55,6 +56,12 @@ public class Vamp1Combat : MonoBehaviour
     public Vector2 mapBoundsMax;
     public float wallCheckBuffer = 0.3f;
 
+    [Header("Knockback Settings")]
+    public float knockbackForce = 5f;
+    public float knockbackDuration = 0.15f;
+    private float knockbackTimer = 0f;
+    public bool isKnockback => knockbackTimer > 0f;
+
     [Header("Layer Masks")]
     public LayerMask playerLayer;
     public LayerMask pillarLayer;
@@ -74,6 +81,17 @@ public class Vamp1Combat : MonoBehaviour
     {
         if (!vm.agro) return;
 
+        if(knockbackTimer > 0f)
+        {
+            knockbackTimer -= Time.fixedDeltaTime;
+            if(knockbackTimer <= 0f)
+            {
+                rb.linearVelocity = Vector2.zero;
+
+                return;
+            }
+        }
+
         basicAttackTimer += Time.deltaTime; // Basic Attack Timer
         if (basicAttackTimer >= basicAttackCooldown)
         {
@@ -87,6 +105,18 @@ public class Vamp1Combat : MonoBehaviour
         // If melee mode is active → move toward player
         if (chasePlayer) vm.HandleAgro();
     }
+
+    // void FixedUpdate()
+    // {
+    //     if(knockbackTimer > 0f)
+    //     {
+    //         knockbackTimer -= Time.fixedDeltaTime;
+    //         if(knockbackTimer <= 0f)
+    //         {
+    //             rb.linearVelocity = Vector2.zero;
+    //         }
+    //     }
+    // }
 
     void CheckSpecialAttack()
     {
@@ -133,17 +163,51 @@ public class Vamp1Combat : MonoBehaviour
             StartCoroutine(ChaseUntilMelee());
             return;
         }
+
+        StartCoroutine(PerformMeleeAttack());
+        // if (dist <= meleeRange)
+        // {
+        //     // Damage player
+        //     Debug.Log("Attempting to damage player");
+        //     anim.SetTrigger("Attack");
+        //     vm.StopMoving();
+        //     playerHealth.AddDamage((int)meleeDamage);
+            
+        // }
+        // chasePlayer = false;
+        // isAttacking = false;
+    }
+
+    IEnumerator PerformMeleeAttack()
+    {
+        isAttacking = true;
+        chasePlayer = false;
+
+        // Stop the enemy while attacking
+        vm.StopMoving();
+
+        // Start attack animation
+        anim.SetTrigger("Attack");
+
+        // Give the player time to react
+        yield return new WaitForSeconds(meleeReactionTime);
+
+        // Check distance again AFTER the delay
+        float dist = Vector2.Distance(transform.position, vm.target.position);
+
         if (dist <= meleeRange)
         {
-            // Damage player
-            Debug.Log("Attempting to damage player");
-            anim.SetTrigger("Attack");
-            vm.StopMoving();
+            Debug.Log("Melee attack hit!");
             playerHealth.AddDamage((int)meleeDamage);
-            
         }
-        chasePlayer = false;
+        else
+        {
+            Debug.Log("Melee attack missed!");
+        }
+
+        // Finish attack
         isAttacking = false;
+        chasePlayer = true;
     }
 
     IEnumerator ChaseUntilMelee()
@@ -289,6 +353,10 @@ public class Vamp1Combat : MonoBehaviour
         vb.vamp1CurrentHealth -= damage;
         vb.vamp1CurrentHealth = Mathf.Clamp(vb.vamp1CurrentHealth, 0 , vb.vamp1MaxHealth);
         enemyHealthUI.SetHealth(damage);
+
+        anim.SetTrigger("Hurt");
+
+
         if(vb.vamp1CurrentHealth <= 0)
         {
             // Death + animation 
@@ -302,5 +370,21 @@ public class Vamp1Combat : MonoBehaviour
         {
             returnToMain.isBossDefeated = false;
         }
+    }
+
+    public void Knockback(Vector2 hitPostion)
+    {
+        Debug.Log("Knockback");
+        // Direction from the point of impact toward the enemy.
+        Vector2 direction = ((Vector2)transform.position - hitPostion).normalized;
+
+        rb.linearVelocity = direction * knockbackForce;
+        knockbackTimer = knockbackDuration;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, meleeRange);
     }
 }

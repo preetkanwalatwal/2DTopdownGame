@@ -77,7 +77,7 @@ public class Vamp1Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (vc.isDashing)
+        if (vc.isDashing || vc.isKnockback)
         {
             // Let Vamp1Combat's Dash() coroutine drive velocity directly —
             // don't let this script stomp on it or zero it out.

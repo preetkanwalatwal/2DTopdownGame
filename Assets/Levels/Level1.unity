@@ -13854,6 +13854,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1391215226}
     - target: {fileID: 1314186413128021136, guid: 3d893b596f963884abb26d3b393078e5, type: 3}
+      propertyPath: meleeRange
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1314186413128021136, guid: 3d893b596f963884abb26d3b393078e5, type: 3}
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 1559736971}
