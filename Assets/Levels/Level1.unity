@@ -13855,7 +13855,11 @@ PrefabInstance:
       objectReference: {fileID: 1391215226}
     - target: {fileID: 1314186413128021136, guid: 3d893b596f963884abb26d3b393078e5, type: 3}
       propertyPath: meleeRange
-      value: 1.75
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1314186413128021136, guid: 3d893b596f963884abb26d3b393078e5, type: 3}
+      propertyPath: meleeDamage
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1314186413128021136, guid: 3d893b596f963884abb26d3b393078e5, type: 3}
       propertyPath: playerHealth
@@ -14026,6 +14030,10 @@ PrefabInstance:
     - target: {fileID: 3255760245771631789, guid: 547007e34f77a434488e10f73fabead9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4819446004732692374, guid: 547007e34f77a434488e10f73fabead9, type: 3}
+      propertyPath: attackTimings.Array.size
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8330422834674387644, guid: 547007e34f77a434488e10f73fabead9, type: 3}
       propertyPath: healthUI
