@@ -5,10 +5,15 @@ public class VB2_Animation : MonoBehaviour
     public bool isAttacking = false;
 
     Animator v2Anim;
+    public Animator meleeProjectileAnim;
+
+    private float projectileAnimationProgress = 0f;
+    private bool hasProjectileAnimationProgress = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         v2Anim = GetComponentInChildren<Animator>();
+        // meleeProjectileAnim = GetComponentInChildren<Animator>();
     }
 
     public void UpdateAnimation(Vector2 moveDir, bool isRunOn, bool isAttacking)
@@ -59,4 +64,85 @@ public class VB2_Animation : MonoBehaviour
     {
         v2Anim.SetBool("IsRunning", isRange);
     }
+
+    public void SetProjectileAnimationProgress(Animator projectileAnimation, float progress)
+    {
+        if(projectileAnimation == null) return;
+
+        projectileAnimationProgress = Mathf.Clamp01(progress);
+        hasProjectileAnimationProgress = true;
+
+        if(meleeProjectileAnim != null)
+        {
+            ApplyProjectileAnimation();
+        }
+    }
+
+    void ApplyProjectileAnimation()
+    {
+        if(meleeProjectileAnim == null) return;
+
+        meleeProjectileAnim.Play(
+            "VB2_MeleeSouth",
+            0,
+            projectileAnimationProgress
+        );
+
+        meleeProjectileAnim.Update(0f);
+    }
+
+    public void UpdateMeleeProjectileAnim(
+    float time,
+    float distance,
+    float animProgress)
+    {
+        if (meleeProjectileAnim == null || time <= 0f)
+            return;
+
+        AnimatorStateInfo stateInfo =
+            meleeProjectileAnim.GetCurrentAnimatorStateInfo(0);
+
+        float remainingProgress = 1f - Mathf.Clamp01(animProgress);
+
+        float remainingAnimationTime =
+            stateInfo.length * remainingProgress;
+
+        if (remainingAnimationTime > 0f)
+        {
+            meleeProjectileAnim.speed =
+                remainingAnimationTime / time;
+        }
+
+        meleeProjectileAnim.Play(
+            "VB2_MeleeSouth",
+            0,
+            Mathf.Clamp01(animProgress)
+        );
+
+        meleeProjectileAnim.Update(0f);
+    }
+
+    public void SetProjectileAnimator(Animator projectileAnimator)
+    {
+        meleeProjectileAnim = projectileAnimator;
+    }
+    
+    // public void UpdateMeleeProjectileAnim(float time, float distance, float animProgress)
+    // {
+    //     // Calculate animation speed over its life time.
+    //     meleeProjectileAnim.speed = distance / time;
+
+    //     // Continue from the parents animation position.
+    //     AnimatorStateInfo stateInfo = meleeProjectileAnim.GetCurrentAnimatorStateInfo(0);
+
+    //     float animationLength = stateInfo.length;
+
+    //     // if(animationLength > 0f)
+    //     // {
+    //     //     meleeProjectileAnim.Play(stateInfo.fullPathHash, 0, animProgress / animationLength);
+    //     //     meleeProjectileAnim.Update(0f); 
+    //     // }
+    //     meleeProjectileAnim.Play("VB2_MeleeSouth", 0, animProgress / animationLength);
+    //     meleeProjectileAnim.Update(0f);
+    // }
 }

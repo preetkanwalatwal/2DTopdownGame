@@ -17,6 +17,9 @@ public class VB2_Movement : MonoBehaviour
     public bool hasChosenTarget = false;
     public bool moveToCenter = false;
     public int travelTo;
+
+    public Vector2 quadrantMovementMin; // Bottom-left corner of qudrant
+    public Vector2 quadrantMovementMax; // Top-right corner of quadrant
     void Awake()
     {
         VB_rb = GetComponent<Rigidbody2D>();
@@ -41,8 +44,6 @@ public class VB2_Movement : MonoBehaviour
         VB_isMoving = true;
         // Debug.Log("Is moving to player");
         // Distance to stop at
-
-        
     }
 
     public void MoveAway(Vector2 newPosition)
@@ -52,9 +53,10 @@ public class VB2_Movement : MonoBehaviour
         VB_isMoving = true;
     }
 
-    public void HoverBy(Transform playerTarget)
+    public void MoveToQuadrant(Vector2 targetPosition)
     {
-        
+        VB_moveDirection = (targetPosition - VB_rb.position).normalized;
+        VB_isMoving = true;
     }
 
     public void FlyToCorner(bool isFly)
@@ -117,6 +119,50 @@ public class VB2_Movement : MonoBehaviour
         VB_moveDirection = Vector2.zero;
         VB_isMoving = false;
     }
+
+    // === Controlled movement ===
+    // - Define x, y range for movement
+    // - Split defined area into 4 quadrants
+    // - Move to random point in quadrant depending on player position
+
+    public void MoveToRandomPointInQuadrant(Vector2 playerPosition)
+    {
+        // x, y defined above.
+
+        Vector2 midX = new Vector2((quadrantMovementMin.x + quadrantMovementMax.x) / 2, 0);
+        Vector2 midY = new Vector2(0, (quadrantMovementMin.y + quadrantMovementMax.y) / 2);
+        playerPosition = new Vector2(playerPosition.x, playerPosition.y);
+        // Determine where player is relative to character.
+        if(playerPosition.x < midX.x && playerPosition.y < midY.y) // Player in bottom left quadrant
+        {
+            // Move to top right quadrant
+            Vector2 randomPoint = new Vector2(Random.Range(midX.x, quadrantMovementMax.x), Random.Range(midY.y, quadrantMovementMax.y));
+            MoveToQuadrant(-randomPoint);
+            Debug.Log("Moving to top right quadrant: " + randomPoint);
+        }
+        else if(playerPosition.x > midX.x && playerPosition.y < midY.y) // Player in bottom right quadrant
+        {
+            // Move to top left quadrant
+            Vector2 randomPoint = new Vector2(Random.Range(quadrantMovementMin.x, midX.x), Random.Range(midY.y, quadrantMovementMax.y));
+            MoveToQuadrant(-randomPoint);
+            Debug.Log("Moving to top left quadrant: " + randomPoint);
+        }
+        else if(playerPosition.x < midX.x && playerPosition.y > midY.y) // Player in top left quadrant
+        {
+            // Move to bottom right quadrant
+            Vector2 randomPoint = new Vector2(Random.Range(midX.x, quadrantMovementMax.x), Random.Range(quadrantMovementMin.y, midY.y));
+            MoveToQuadrant(-randomPoint);
+            Debug.Log("Moving to bottom right quadrant: " + randomPoint);
+        }
+        else if(playerPosition.x > midX.x && playerPosition.y > midY.y) // Player in top right quadrant
+        {
+            // Move to bottom left quadrant
+            Vector2 randomPoint = new Vector2(Random.Range(quadrantMovementMin.x, midX.x), Random.Range(quadrantMovementMin.y, midY.y));
+            MoveToQuadrant(-randomPoint);
+            Debug.Log("Moving to bottom left quadrant: " + randomPoint);
+        }
+    }
+
 
     
 }

@@ -45,6 +45,8 @@ public class VB2_Controller : MonoBehaviour
     public float maxDistance;
     private float distanceToPlayer;
     public float attackTime = 1.5f;
+    public float meleeInterval = 4f;
+    private float meleeTimer = 0f;
 
     public bool start = false;
     public bool meleeAttack = false;
@@ -53,6 +55,8 @@ public class VB2_Controller : MonoBehaviour
     public bool isRun = false;
     public bool isAttack = false;
     public bool rotateCorner = false;
+
+    public GameObject projectilePrefab;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -191,7 +195,7 @@ public class VB2_Controller : MonoBehaviour
         {
             if (distanceToPlayer >= minDistance)
             {
-                ChangeState(BossState.Chase);
+                ChangeState(BossState.Melee);
             }
             start = false;
         }
@@ -199,10 +203,10 @@ public class VB2_Controller : MonoBehaviour
         {
             movement.StopMove();
         }
-        if(distanceToPlayer > minDistance && isMove)
-        {
-            ChangeState(BossState.Chase);
-        }
+        // if(distanceToPlayer > minDistance && isMove)
+        // {
+        //     ChangeState(BossState.Chase);
+        // }
         
         
 
@@ -227,50 +231,70 @@ public class VB2_Controller : MonoBehaviour
 
     void MeleeBehaviour()
     {
-        movement.StopMove();
+        meleeTimer -= Time.deltaTime;
 
-        if (!meleeAttack)
-        {
-            StartCoroutine(AttackRoutine());
-        }
+        if (meleeTimer > 0f) return;
 
-        // hitCounts to throw random ranged attack - if()
-        // ChangeState(BossState.Retreat);
+        meleeTimer = meleeInterval;
 
-        if (isMove && !isAttack)
-        {
-           ChangeState(BossState.Chase); 
-        }
-        else
-        {
-            ChangeState(BossState.Idle);
-        }
-        // ChangeState(BossState.Chase);
+        // movement.MoveToRandomPointInQuadrant(player.position);
+        StartCoroutine(MeleeAttackRoutine());
     }
 
-    IEnumerator AttackRoutine()
+    IEnumerator MeleeAttackRoutine()
     {
-        isAttack = true;
-        meleeAttack = true;
-        // movement.StopMove();
-        // movement.VB_isMoving = false;
-        isMove = false;
-        float timer = 0f;
-        animations.isAttacking = true;
-
-        yield return null; // Wait a frame
-        while (timer < attackTime)
-        {
-            timer += Time.deltaTime;
-            animations.UpdateCombatAnimation(movement.VB_moveDirection);
-            yield return null;
-        }
-
-        animations.isAttacking = false;
-        meleeAttack = false;
-        isAttack = false;
-        isMove = true;
+        movement.MoveToRandomPointInQuadrant(player.position);
+        yield return new WaitForSeconds(attackTime);
+        movement.StopMove();
+        Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
     }
+
+    // void MeleeBehaviour()
+    // {
+    //     movement.StopMove();
+
+    //     if (!meleeAttack)
+    //     {
+    //         StartCoroutine(AttackRoutine());
+    //     }
+
+    //     // hitCounts to throw random ranged attack - if()
+    //     // ChangeState(BossState.Retreat);
+
+    //     if (isMove && !isAttack)
+    //     {
+    //        ChangeState(BossState.Chase); 
+    //     }
+    //     else
+    //     {
+    //         ChangeState(BossState.Idle);
+    //     }
+    //     // ChangeState(BossState.Chase);
+    // }
+
+    // IEnumerator AttackRoutine()
+    // {
+    //     isAttack = true;
+    //     meleeAttack = true;
+    //     // movement.StopMove();
+    //     // movement.VB_isMoving = false;
+    //     isMove = false;
+    //     float timer = 0f;
+    //     animations.isAttacking = true;
+
+    //     yield return null; // Wait a frame
+    //     while (timer < attackTime)
+    //     {
+    //         timer += Time.deltaTime;
+    //         animations.UpdateCombatAnimation(movement.VB_moveDirection);
+    //         yield return null;
+    //     }
+
+    //     animations.isAttacking = false;
+    //     meleeAttack = false;
+    //     isAttack = false;
+    //     isMove = true;
+    // }
     
     void RangeBehaviour()
     {
@@ -301,7 +325,8 @@ public class VB2_Controller : MonoBehaviour
             // rangeAttack = false;
             movement.FlyToCenter(true);
 
-            ChangeState(BossState.Chase);
+            // ChangeState(BossState.Chase);
+            ChangeState(BossState.Melee);
         }
 
         

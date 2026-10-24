@@ -261,11 +261,37 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Vampires2_Attack_magic_0
+      name: Vampires2_Attack_magic_1a
       rect:
         serializedVersion: 2
         x: 85
@@ -273,7 +299,7 @@ TextureImporter:
         width: 14
         height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -295,7 +321,7 @@ TextureImporter:
         width: 14
         height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -317,7 +343,7 @@ TextureImporter:
         width: 14
         height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -339,7 +365,7 @@ TextureImporter:
         width: 14
         height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -353,15 +379,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Vampires2_Attack_magic_4
+      name: Vampires2_Attack_magic_1b
       rect:
         serializedVersion: 2
-        x: 145
+        x: 144
         y: 206
         width: 19
         height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -383,7 +409,7 @@ TextureImporter:
         width: 19
         height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -405,7 +431,7 @@ TextureImporter:
         width: 19
         height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -427,7 +453,7 @@ TextureImporter:
         width: 19
         height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -441,15 +467,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Vampires2_Attack_magic_8
+      name: Vampires2_Attack_magic_1c
       rect:
         serializedVersion: 2
-        x: 207
+        x: 206
         y: 204
         width: 32
         height: 27
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -468,10 +494,10 @@ TextureImporter:
         serializedVersion: 2
         x: 207
         y: 76
-        width: 16
-        height: 25
+        width: 32
+        height: 27
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -493,7 +519,7 @@ TextureImporter:
         width: 32
         height: 27
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -510,12 +536,12 @@ TextureImporter:
       name: Vampires2_Attack_magic_11
       rect:
         serializedVersion: 2
-        x: 208
-        y: 29
-        width: 16
-        height: 10
+        x: 526
+        y: 148
+        width: 31
+        height: 34
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -532,12 +558,12 @@ TextureImporter:
       name: Vampires2_Attack_magic_12
       rect:
         serializedVersion: 2
-        x: 223
-        y: 93
-        width: 16
-        height: 10
+        x: 514
+        y: 81
+        width: 34
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -554,12 +580,12 @@ TextureImporter:
       name: Vampires2_Attack_magic_13
       rect:
         serializedVersion: 2
-        x: 224
+        x: 208
         y: 12
-        width: 16
-        height: 25
+        width: 32
+        height: 27
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -581,7 +607,7 @@ TextureImporter:
         width: 29
         height: 28
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -603,7 +629,7 @@ TextureImporter:
         width: 28
         height: 28
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -620,12 +646,12 @@ TextureImporter:
       name: Vampires2_Attack_magic_16
       rect:
         serializedVersion: 2
-        x: 276
-        y: 220
-        width: 9
-        height: 8
+        x: 538
+        y: 18
+        width: 35
+        height: 33
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -639,15 +665,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Vampires2_Attack_magic_17
+      name: Vampires2_Attack_magic_1d
       rect:
         serializedVersion: 2
-        x: 277
+        x: 276
         y: 205
-        width: 28
+        width: 29
         height: 28
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -669,7 +695,7 @@ TextureImporter:
         width: 28
         height: 28
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -691,7 +717,7 @@ TextureImporter:
         width: 28
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -713,7 +739,7 @@ TextureImporter:
         width: 39
         height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -735,7 +761,7 @@ TextureImporter:
         width: 39
         height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -749,7 +775,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Vampires2_Attack_magic_22
+      name: Vampires2_Attack_magic_1e
       rect:
         serializedVersion: 2
         x: 344
@@ -757,7 +783,7 @@ TextureImporter:
         width: 28
         height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -779,7 +805,7 @@ TextureImporter:
         width: 35
         height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -801,7 +827,7 @@ TextureImporter:
         width: 23
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -823,7 +849,7 @@ TextureImporter:
         width: 35
         height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -837,7 +863,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Vampires2_Attack_magic_26
+      name: Vampires2_Attack_magic_1f
       rect:
         serializedVersion: 2
         x: 406
@@ -845,7 +871,7 @@ TextureImporter:
         width: 23
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -864,10 +890,10 @@ TextureImporter:
         serializedVersion: 2
         x: 453
         y: 85
-        width: 24
+        width: 42
         height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -889,7 +915,7 @@ TextureImporter:
         width: 25
         height: 29
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -903,15 +929,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Vampires2_Attack_magic_29
+      name: Vampires2_Attack_magic_1l
       rect:
         serializedVersion: 2
-        x: 465
-        y: 21
-        width: 19
-        height: 21
+        x: 719
+        y: 206
+        width: 33
+        height: 34
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -925,15 +951,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Vampires2_Attack_magic_30
+      name: Vampires2_Attack_magic_1g
       rect:
         serializedVersion: 2
-        x: 469
-        y: 213
+        x: 468
+        y: 212
         width: 25
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -950,12 +976,12 @@ TextureImporter:
       name: Vampires2_Attack_magic_31
       rect:
         serializedVersion: 2
-        x: 469
-        y: 172
-        width: 6
-        height: 6
+        x: 718
+        y: 150
+        width: 34
+        height: 34
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -972,12 +998,12 @@ TextureImporter:
       name: Vampires2_Attack_magic_32
       rect:
         serializedVersion: 2
-        x: 475
-        y: 85
-        width: 19
-        height: 21
+        x: 702
+        y: 78
+        width: 36
+        height: 34
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -994,12 +1020,12 @@ TextureImporter:
       name: Vampires2_Attack_magic_33
       rect:
         serializedVersion: 2
-        x: 482
+        x: 465
         y: 21
-        width: 24
+        width: 41
         height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1013,15 +1039,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Vampires2_Attack_magic_34
+      name: Vampires2_Attack_magic_1h
       rect:
         serializedVersion: 2
-        x: 515
-        y: 19
-        width: 57
-        height: 221
+        x: 529
+        y: 209
+        width: 31
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1043,7 +1069,7 @@ TextureImporter:
         width: 36
         height: 34
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1065,7 +1091,7 @@ TextureImporter:
         width: 33
         height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1079,7 +1105,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Vampires2_Attack_magic_37
+      name: Vampires2_Attack_magic_1i
       rect:
         serializedVersion: 2
         x: 593
@@ -1087,7 +1113,7 @@ TextureImporter:
         width: 33
         height: 34
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1109,7 +1135,7 @@ TextureImporter:
         width: 36
         height: 34
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1131,7 +1157,7 @@ TextureImporter:
         width: 13
         height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1149,11 +1175,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 640
-        y: 100
-        width: 11
-        height: 11
+        y: 79
+        width: 31
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1170,12 +1196,12 @@ TextureImporter:
       name: Vampires2_Attack_magic_41
       rect:
         serializedVersion: 2
-        x: 640
-        y: 80
-        width: 11
-        height: 11
+        x: 734
+        y: 14
+        width: 34
+        height: 35
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1189,15 +1215,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Vampires2_Attack_magic_42
+      name: Vampires2_Attack_magic_1k
       rect:
         serializedVersion: 2
         x: 656
-        y: 228
-        width: 11
-        height: 11
+        y: 206
+        width: 31
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1211,37 +1237,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Vampires2_Attack_magic_43
-      rect:
-        serializedVersion: 2
-        x: 656
-        y: 208
-        width: 11
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ca4950beb0db66eb0800000000000000
-      internalID: -4726882899993455444
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Vampires2_Attack_magic_44
       rect:
         serializedVersion: 2
         x: 656
-        y: 172
-        width: 11
-        height: 11
+        y: 151
+        width: 31
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1255,81 +1259,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Vampires2_Attack_magic_45
-      rect:
-        serializedVersion: 2
-        x: 656
-        y: 152
-        width: 10
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f153301fdba1a8010800000000000000
-      internalID: 1191794454487577887
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Vampires2_Attack_magic_46
-      rect:
-        serializedVersion: 2
-        x: 660
-        y: 100
-        width: 11
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 36ef5cde23cb42370800000000000000
-      internalID: 8296963340446858851
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Vampires2_Attack_magic_47
-      rect:
-        serializedVersion: 2
-        x: 660
-        y: 80
-        width: 11
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ea47491a9b2c51450800000000000000
-      internalID: 6058962976232469678
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Vampires2_Attack_magic_48
       rect:
         serializedVersion: 2
         x: 672
-        y: 36
-        width: 11
-        height: 11
+        y: 15
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1342,165 +1280,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Vampires2_Attack_magic_49
-      rect:
-        serializedVersion: 2
-        x: 672
-        y: 16
-        width: 11
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6790d33dc85ca9480800000000000000
-      internalID: -8891577305659537034
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Vampires2_Attack_magic_50
-      rect:
-        serializedVersion: 2
-        x: 676
-        y: 15
-        width: 92
-        height: 225
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2266f374681bea970800000000000000
-      internalID: 8768140714816005666
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Vampires2_Attack_magic_51
-      rect:
-        serializedVersion: 2
-        x: 676
-        y: 208
-        width: 11
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b63058b8890bd4ce0800000000000000
-      internalID: -1419284138329570453
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Vampires2_Attack_magic_52
-      rect:
-        serializedVersion: 2
-        x: 676
-        y: 172
-        width: 11
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 21ea4ccaebfeba100800000000000000
-      internalID: 120453417276845586
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Vampires2_Attack_magic_53
-      rect:
-        serializedVersion: 2
-        x: 677
-        y: 152
-        width: 10
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e09912e61929161b0800000000000000
-      internalID: -5665085702939764466
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Vampires2_Attack_magic_54
-      rect:
-        serializedVersion: 2
-        x: 692
-        y: 36
-        width: 11
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f48fa5e57c6f35b90800000000000000
-      internalID: -7254183238621792177
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Vampires2_Attack_magic_55
-      rect:
-        serializedVersion: 2
-        x: 692
-        y: 16
-        width: 11
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9221d13dcd1235950800000000000000
-      internalID: 6436525524760990249
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 4bc8253c89380d749a37ac53f63270a6
     internalID: 0
     vertices: []
     indices: 
@@ -1510,7 +1294,6 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Vampires2_Attack_magic_0: 2070300580833793310
       Vampires2_Attack_magic_1: -8551399020263105833
       Vampires2_Attack_magic_10: -1528004939277247966
       Vampires2_Attack_magic_11: 2574564121249874271
@@ -1519,35 +1302,37 @@ TextureImporter:
       Vampires2_Attack_magic_14: 6349018147629006976
       Vampires2_Attack_magic_15: -4855928246162283848
       Vampires2_Attack_magic_16: -2982400582078083298
-      Vampires2_Attack_magic_17: 3141979010222012861
       Vampires2_Attack_magic_18: 4360878758382069537
       Vampires2_Attack_magic_19: 8376061063474382123
+      Vampires2_Attack_magic_1a: 2070300580833793310
+      Vampires2_Attack_magic_1b: 720858944806131522
+      Vampires2_Attack_magic_1c: 5407910296826724321
+      Vampires2_Attack_magic_1d: 3141979010222012861
+      Vampires2_Attack_magic_1e: -4137952009816425550
+      Vampires2_Attack_magic_1f: 583259958725918870
+      Vampires2_Attack_magic_1g: 3430823618254601912
+      Vampires2_Attack_magic_1h: -6894569286307513471
+      Vampires2_Attack_magic_1i: 6969472826302084731
+      Vampires2_Attack_magic_1k: -3650390336605493632
+      Vampires2_Attack_magic_1l: 492869045968316813
       Vampires2_Attack_magic_2: -4208949871262196025
       Vampires2_Attack_magic_20: 1814440838651912711
       Vampires2_Attack_magic_21: 3571374439884423540
-      Vampires2_Attack_magic_22: -4137952009816425550
       Vampires2_Attack_magic_23: -5649195203686154514
       Vampires2_Attack_magic_24: -1496602202252193447
       Vampires2_Attack_magic_25: 2385483827180565069
-      Vampires2_Attack_magic_26: 583259958725918870
       Vampires2_Attack_magic_27: -3889200030178037528
       Vampires2_Attack_magic_28: 6182028068636351824
-      Vampires2_Attack_magic_29: 492869045968316813
       Vampires2_Attack_magic_3: -369905799214491674
-      Vampires2_Attack_magic_30: 3430823618254601912
       Vampires2_Attack_magic_31: -6005147558018707890
       Vampires2_Attack_magic_32: 5546162513536344268
       Vampires2_Attack_magic_33: -4689639946809632616
-      Vampires2_Attack_magic_34: -6894569286307513471
       Vampires2_Attack_magic_35: -3629697228579437881
       Vampires2_Attack_magic_36: 6068232907157339250
-      Vampires2_Attack_magic_37: 6969472826302084731
       Vampires2_Attack_magic_38: -5643561464151996947
       Vampires2_Attack_magic_39: 3187674293526149802
-      Vampires2_Attack_magic_4: 720858944806131522
       Vampires2_Attack_magic_40: -6971105578200032241
       Vampires2_Attack_magic_41: 4282405892877289387
-      Vampires2_Attack_magic_42: -3650390336605493632
       Vampires2_Attack_magic_43: -4726882899993455444
       Vampires2_Attack_magic_44: 3864844235806314914
       Vampires2_Attack_magic_45: 1191794454487577887
@@ -1564,7 +1349,6 @@ TextureImporter:
       Vampires2_Attack_magic_55: 6436525524760990249
       Vampires2_Attack_magic_6: 833340983639106652
       Vampires2_Attack_magic_7: 4496242386398863972
-      Vampires2_Attack_magic_8: 5407910296826724321
       Vampires2_Attack_magic_9: -7662584849112508918
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

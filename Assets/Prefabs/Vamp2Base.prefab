@@ -125,11 +125,12 @@ MonoBehaviour:
   aimRotateSpeed: 5
   prefab: {fileID: 3150906213805596560, guid: bbb45424e44356d4990966f4a2052dbf, type: 3}
   firePoint: {fileID: 743769680408680183}
-  spreadAngle: 10
+  spreadAngle: 15
   currentState: 0
   minDistance: 1.5
   maxDistance: 10
   attackTime: 1.5
+  meleeInterval: 8
   start: 0
   meleeAttack: 0
   rangeAttack: 0
@@ -137,6 +138,7 @@ MonoBehaviour:
   isRun: 0
   isAttack: 0
   rotateCorner: 0
+  projectilePrefab: {fileID: 3824922033239274187, guid: a7077d3db659b174e9c4e37ab27b5870, type: 3}
 --- !u!114 &6520085510726646774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,6 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAttacking: 0
+  meleeProjectileAnim: {fileID: 0}
 --- !u!114 &5717192998258505102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,6 +210,8 @@ MonoBehaviour:
   hasChosenTarget: 0
   moveToCenter: 0
   travelTo: 0
+  quadrantMovementMin: {x: -5, y: -6.5}
+  quadrantMovementMax: {x: 6, y: 3.5}
 --- !u!114 &324480010013030315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,7 +380,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4652529770799249803}
   - component: {fileID: 5749742902304259297}
-  - component: {fileID: 84194598237427781}
+  - component: {fileID: 3700892894807876725}
   m_Layer: 0
   m_Name: Vampires2_Idle_without_shadow_0
   m_TagString: Untagged
@@ -400,6 +405,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5749742902304259297
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -418,6 +424,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -439,9 +447,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -148253601
   m_SortingLayer: 7
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 1672575443999941886, guid: d8fe58af1e73a7240973cb5b5a5150f0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -451,9 +461,8 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &84194598237427781
+--- !u!95 &3700892894807876725
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -489,7 +498,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1673219819123885480, guid: 35fea0dfba36f414e8a1f557207f9f83, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1673219819123885480, guid: 35fea0dfba36f414e8a1f557207f9f83, type: 3}
       propertyPath: m_LocalPosition.z
